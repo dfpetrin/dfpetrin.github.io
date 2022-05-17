@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Reward Attribution</h1>
+    <img src="images/mtg.png"
+        alt="Magic: The Gathering combined fire and plains mana symbol. A circle half red-orange and half tan, split diagonally bottom-left to top-right.  There is a black symbol centered in each half; a spiraling fireball in the red and a sun depicted as a circle with a corona of wavy spikes in the yellow.">
+    <p>Typically when applying a policy-optimization reinforcement learning algorithm, rewards are assigned to the
+        action which immediately precedes it, and potentially to prior rewards in order of recency with some decay
+        factor. However, applying this scheme to reward allocation in collectible card game drafting is not approproate.
+    </p>
+    <p>Here I propose instead to rearrange the actions to reflect the draft decision order, rather than the battle draw
+        order, prior to computing and assigning reward. The steps are:</p>
+    <ol>
+        <li>Make drafting decisions, recording decision order</li>
+        <li>Execute a battle, recording card draw order</li>
+        <li>Rearrange decisions based on draw order</li>
+        <li>Using outcome of battle, calculate rewards</li>
+        <li>Return cards to draft order; important for NN architectures like RNNs</li>
+    </ol>
+    <p>The experiments were performed using a CCG designed specifically for AI research, called <a
+            href="https://legendsofcodeandmagic.com/">Legends of Code and Magic</a>.
+    </p>
+    <button>Change user</button>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
